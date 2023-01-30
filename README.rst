@@ -36,10 +36,8 @@ This is easily achieved by downloading
 or individual libraries can be installed using
 `circup <https://github.com/adafruit/circup>`_.
 
-.. todo:: Describe the Adafruit product this library works with. For PCBs, you can also add the
-image from the assets folder in the PCB's GitHub repo.
+* `Waveshare 7.3" F <https://www.waveshare.com/7.3inch-e-paper-hat-f.htm>`_
 
-`Purchase one from the Adafruit shop <http://www.adafruit.com/products/>`_
 Installing from PyPI
 =====================
 .. note:: This library is not available on PyPI yet. Install documentation is included
