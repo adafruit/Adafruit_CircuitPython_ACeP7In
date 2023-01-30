@@ -24,14 +24,10 @@ Table of Contents
 .. toctree::
     :caption: Tutorials
 
-.. todo:: Add any Learn guide links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
-
 .. toctree::
     :caption: Related Products
 
-.. todo:: Add any product links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
+    Waveshare 7.3" F <https://www.waveshare.com/7.3inch-e-paper-hat-f.htm>
 
 .. toctree::
     :caption: Other Links
