@@ -27,29 +27,29 @@ __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ACeP7In.git"
 
 _START_SEQUENCE = (
-    b"\xaa\x06\x49\x55\x20\x08\x09\x18" # CMDH
+    b"\xaa\x06\x49\x55\x20\x08\x09\x18"  # CMDH
     b"\x01\x06\x3F\x00\x32\x2A\x0E\x2A"  # power setting PWRR
-    b"\x00\x02\x5f\x69" # panel setting (PSR)
-    b"\x03\x04\x00\x54\x00\x44" # POFS
-    b"\x05\x04\x40\x1F\x1F\x2C" # booster BTST1
-    b"\x06\x04\x6F\x1F\x16\x25" # booster BTST2
-    b"\x08\x04\x6F\x1F\x1F\x22" # booster BTST3
-    b"\x13\x02\x00\x04" # IPC
-    b"\x30\x01\x02" # PLL setting
-    b"\x41\x01\x00" # TSE
-    b"\x50\x01\x3F" # vcom and data interval setting
-    b"\x60\x02\x02\x00" # tcon setting
-    b"\x61\x04\x03\x20\x01\xe0" # tres
-    b"\x82\x01\x1e" # vdcs
-    b"\x84\x01\x00" # t_vdcs
-    b"\x86\x01\x00" # agid
-    b"\xe3\x01\x2f" # PWS
-    b"\xe0\x01\x00" # ccset
-    b"\xe6\x01\x00" # tsset
+    b"\x00\x02\x5f\x69"  # panel setting (PSR)
+    b"\x03\x04\x00\x54\x00\x44"  # POFS
+    b"\x05\x04\x40\x1F\x1F\x2C"  # booster BTST1
+    b"\x06\x04\x6F\x1F\x16\x25"  # booster BTST2
+    b"\x08\x04\x6F\x1F\x1F\x22"  # booster BTST3
+    b"\x13\x02\x00\x04"  # IPC
+    b"\x30\x01\x02"  # PLL setting
+    b"\x41\x01\x00"  # TSE
+    b"\x50\x01\x3F"  # vcom and data interval setting
+    b"\x60\x02\x02\x00"  # tcon setting
+    b"\x61\x04\x03\x20\x01\xe0"  # tres
+    b"\x82\x01\x1e"  # vdcs
+    b"\x84\x01\x00"  # t_vdcs
+    b"\x86\x01\x00"  # agid
+    b"\xe3\x01\x2f"  # PWS
+    b"\xe0\x01\x00"  # ccset
+    b"\xe6\x01\x00"  # tsset
     b"\x04\x80\xc8"  # power on and wait 10 ms
 )
 
-_STOP_SEQUENCE = b"\x02\x01\x00" # Power off only
+_STOP_SEQUENCE = b"\x02\x01\x00"  # Power off only
 # pylint: disable=too-few-public-methods
 class ACeP7In(displayio.EPaperDisplay):
     r"""Display driver for 7" ACeP epaper display. Driver IC name is unknown.
