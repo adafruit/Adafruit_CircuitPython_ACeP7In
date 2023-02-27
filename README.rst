@@ -36,16 +36,12 @@ This is easily achieved by downloading
 or individual libraries can be installed using
 `circup <https://github.com/adafruit/circup>`_.
 
-.. todo:: Describe the Adafruit product this library works with. For PCBs, you can also add the
-image from the assets folder in the PCB's GitHub repo.
+* `Waveshare 7.3" F <https://www.waveshare.com/7.3inch-e-paper-hat-f.htm>`_
 
-`Purchase one from the Adafruit shop <http://www.adafruit.com/products/>`_
 Installing from PyPI
 =====================
 .. note:: This library is not available on PyPI yet. Install documentation is included
    as a standard element. Stay tuned for PyPI availability!
-
-.. todo:: Remove the above note if PyPI version is/will be available at time of release.
 
 On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
 PyPI <https://pypi.org/project/adafruit-circuitpython-acep7in/>`_.
@@ -96,8 +92,55 @@ Or the following command to update an existing version:
 Usage Example
 =============
 
-.. todo:: Add a quick, simple example. It and other examples should live in the
-examples folder and be included in docs/examples.rst.
+.. code-block:: python
+
+    # SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
+    # SPDX-FileCopyrightText: Copyright (c) 2023 Scott Shawcroft for Adafruit Industries
+    # SPDX-FileCopyrightText: Copyright (c) 2021 Melissa LeBlanc-Williams for Adafruit Industries
+    #
+    # SPDX-License-Identifier: Unlicense
+
+    """Simple test script for 5.6" 600x448 7-color ACeP display.
+      """
+    # pylint: disable=no-member
+
+    import time
+    import board
+    import displayio
+    import adafruit_acep7in
+
+    displayio.release_displays()
+
+    # This pinout works on a Feather RP2040 and may need to be altered for other boards.
+    spi = board.SPI()  # Uses SCK and MOSI
+    epd_cs = board.D9
+    epd_dc = board.D10
+    epd_reset = board.D11
+    epd_busy = board.D12
+
+    display_bus = displayio.FourWire(
+        spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
+    )
+
+    display = adafruit_acep7in.ACeP7In(
+        display_bus, width=800, height=480, busy_pin=epd_busy
+    )
+
+    g = displayio.Group()
+
+    fn = "/display-ruler-720p.bmp"
+
+    with open(fn, "rb") as f:
+        pic = displayio.OnDiskBitmap(f)
+        t = displayio.TileGrid(pic, pixel_shader=pic.pixel_shader)
+        g.append(t)
+
+        display.show(g)
+
+        display.refresh()
+
+        time.sleep(120)
+
 
 Documentation
 =============

@@ -12,7 +12,7 @@ requires = [
 
 [project]
 name = "adafruit-circuitpython-acep7in"
-description = "Driver for 7.3" 7-color (aka ACeP) epaper display"
+description = "Driver for 7.3\" 7-color (aka ACeP) epaper display"
 version = "0.0.0+auto.0"
 readme = "README.rst"
 authors = [
