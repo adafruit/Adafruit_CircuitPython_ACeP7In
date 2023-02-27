@@ -42,8 +42,6 @@ image from the assets folder in the PCB's GitHub repo.
 `Purchase one from the Adafruit shop <http://www.adafruit.com/products/>`_
 Installing from PyPI
 =====================
-.. note:: This library is not available on PyPI yet. Install documentation is included
-   as a standard element. Stay tuned for PyPI availability!
 
 .. todo:: Remove the above note if PyPI version is/will be available at time of release.
 

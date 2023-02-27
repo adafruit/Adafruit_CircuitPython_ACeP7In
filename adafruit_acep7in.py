@@ -84,5 +84,5 @@ class ACeP7In(displayio.EPaperDisplay):
             busy_state=False,
             write_black_ram_command=0x10,
             refresh_display_command=b"\x12\x01\x00",
-            acep=True
+            advanced_color_epaper=True
         )
