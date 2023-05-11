@@ -50,6 +50,8 @@ _START_SEQUENCE = (
 )
 
 _STOP_SEQUENCE = b"\x02\x01\x00"  # Power off only
+
+
 # pylint: disable=too-few-public-methods
 class ACeP7In(displayio.EPaperDisplay):
     r"""Display driver for 7" ACeP epaper display. Driver IC name is unknown.
