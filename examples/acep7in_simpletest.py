@@ -11,6 +11,7 @@
 import time
 import board
 import displayio
+import fourwire
 import adafruit_acep7in
 
 displayio.release_displays()
@@ -22,7 +23,7 @@ epd_dc = board.D10
 epd_reset = board.D11
 epd_busy = board.D12
 
-display_bus = displayio.FourWire(
+display_bus = fourwire.FourWire(
     spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
 )
 
@@ -39,7 +40,7 @@ with open(fn, "rb") as f:
     t = displayio.TileGrid(pic, pixel_shader=pic.pixel_shader)
     g.append(t)
 
-    display.show(g)
+    display.root_group = g
 
     display.refresh()
 
