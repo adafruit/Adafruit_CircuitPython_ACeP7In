@@ -105,8 +105,13 @@ Usage Example
     import time
     import board
     import displayio
-    import fourwire
     import adafruit_acep7in
+
+    # For 8.x.x and 9.x.x. When 8.x.x is discontinued as a stable release, change this.
+    try:
+        from fourwire import FourWire
+    except ImportError:
+        from displayio import FourWire
 
     displayio.release_displays()
 
@@ -117,7 +122,7 @@ Usage Example
     epd_reset = board.D11
     epd_busy = board.D12
 
-    display_bus = fourwire.FourWire(
+    display_bus = FourWire(
         spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
     )
 
