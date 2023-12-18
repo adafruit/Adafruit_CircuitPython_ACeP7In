@@ -21,7 +21,13 @@ Implementation Notes
 
 """
 
-import displayio
+# For 8.x.x and 9.x.x. When 8.x.x is discontinued as a stable release, change this.
+try:
+    from fourwire import FourWire
+    from epaperdisplay import EPaperDisplay
+except ImportError:
+    from displayio import FourWire
+    from displayio import EPaperDisplay
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ACeP7In.git"
@@ -53,7 +59,7 @@ _STOP_SEQUENCE = b"\x02\x01\x00"  # Power off only
 
 
 # pylint: disable=too-few-public-methods
-class ACeP7In(displayio.EPaperDisplay):
+class ACeP7In(EPaperDisplay):
     r"""Display driver for 7" ACeP epaper display. Driver IC name is unknown.
 
     :param bus: The data bus the display is on
@@ -69,7 +75,7 @@ class ACeP7In(displayio.EPaperDisplay):
           Display rotation
     """
 
-    def __init__(self, bus, **kwargs):
+    def __init__(self, bus: FourWire, **kwargs):
         width = kwargs["width"]
         height = kwargs["height"]
         if "rotation" in kwargs and kwargs["rotation"] % 180 != 0:
