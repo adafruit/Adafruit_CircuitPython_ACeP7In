@@ -21,24 +21,24 @@ Implementation Notes
 
 """
 
-from fourwire import FourWire
 from epaperdisplay import EPaperDisplay
+from fourwire import FourWire
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ACeP7In.git"
 
 _START_SEQUENCE = (
     b"\xaa\x06\x49\x55\x20\x08\x09\x18"  # CMDH
-    b"\x01\x06\x3F\x00\x32\x2A\x0E\x2A"  # power setting PWRR
+    b"\x01\x06\x3f\x00\x32\x2a\x0e\x2a"  # power setting PWRR
     b"\x00\x02\x5f\x69"  # panel setting (PSR)
     b"\x03\x04\x00\x54\x00\x44"  # POFS
-    b"\x05\x04\x40\x1F\x1F\x2C"  # booster BTST1
-    b"\x06\x04\x6F\x1F\x16\x25"  # booster BTST2
-    b"\x08\x04\x6F\x1F\x1F\x22"  # booster BTST3
+    b"\x05\x04\x40\x1f\x1f\x2c"  # booster BTST1
+    b"\x06\x04\x6f\x1f\x16\x25"  # booster BTST2
+    b"\x08\x04\x6f\x1f\x1f\x22"  # booster BTST3
     b"\x13\x02\x00\x04"  # IPC
     b"\x30\x01\x02"  # PLL setting
     b"\x41\x01\x00"  # TSE
-    b"\x50\x01\x3F"  # vcom and data interval setting
+    b"\x50\x01\x3f"  # vcom and data interval setting
     b"\x60\x02\x02\x00"  # tcon setting
     b"\x61\x04\x03\x20\x01\xe0"  # tres
     b"\x82\x01\x1e"  # vdcs
@@ -87,5 +87,5 @@ class ACeP7In(EPaperDisplay):
             busy_state=False,
             write_black_ram_command=0x10,
             refresh_display_command=b"\x12\x01\x00",
-            advanced_color_epaper=True
+            advanced_color_epaper=True,
         )
