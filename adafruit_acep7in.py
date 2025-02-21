@@ -21,13 +21,8 @@ Implementation Notes
 
 """
 
-# For 8.x.x and 9.x.x. When 8.x.x is discontinued as a stable release, change this.
-try:
-    from fourwire import FourWire
-    from epaperdisplay import EPaperDisplay
-except ImportError:
-    from displayio import FourWire
-    from displayio import EPaperDisplay
+from fourwire import FourWire
+from epaperdisplay import EPaperDisplay
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ACeP7In.git"
