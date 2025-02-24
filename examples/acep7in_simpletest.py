@@ -4,21 +4,16 @@
 #
 # SPDX-License-Identifier: Unlicense
 
-"""Simple test script for 5.6" 600x448 7-color ACeP display.
-  """
+"""Simple test script for 5.6" 600x448 7-color ACeP display."""
 # pylint: disable=no-member
 
 import time
+
 import board
 import displayio
+from fourwire import FourWire
+
 import adafruit_acep7in
-
-# For 8.x.x and 9.x.x. When 8.x.x is discontinued as a stable release, change this.
-try:
-    from fourwire import FourWire
-except ImportError:
-    from displayio import FourWire
-
 
 displayio.release_displays()
 
@@ -29,13 +24,9 @@ epd_dc = board.D10
 epd_reset = board.D11
 epd_busy = board.D12
 
-display_bus = FourWire(
-    spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
-)
+display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000)
 
-display = adafruit_acep7in.ACeP7In(
-    display_bus, width=800, height=480, busy_pin=epd_busy
-)
+display = adafruit_acep7in.ACeP7In(display_bus, width=800, height=480, busy_pin=epd_busy)
 
 g = displayio.Group()
 

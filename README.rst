@@ -17,9 +17,9 @@ Introduction
     :alt: Build Status
 
 
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
-    :alt: Code Style: Black
+.. image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json
+    :target: https://github.com/astral-sh/ruff
+    :alt: Code Style: Ruff
 
 Driver for 7.3" 7-color (aka ACeP) epaper display
 
@@ -106,12 +106,7 @@ Usage Example
     import board
     import displayio
     import adafruit_acep7in
-
-    # For 8.x.x and 9.x.x. When 8.x.x is discontinued as a stable release, change this.
-    try:
-        from fourwire import FourWire
-    except ImportError:
-        from displayio import FourWire
+    from fourwire import FourWire
 
     displayio.release_displays()
 
