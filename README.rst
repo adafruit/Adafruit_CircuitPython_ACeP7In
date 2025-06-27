@@ -103,10 +103,12 @@ Usage Example
     # pylint: disable=no-member
 
     import time
+
     import board
     import displayio
-    import adafruit_acep7in
     from fourwire import FourWire
+
+    import adafruit_acep7in
 
     displayio.release_displays()
 
@@ -117,29 +119,21 @@ Usage Example
     epd_reset = board.D11
     epd_busy = board.D12
 
-    display_bus = FourWire(
-        spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
-    )
+    display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000)
 
-    display = adafruit_acep7in.ACeP7In(
-        display_bus, width=800, height=480, busy_pin=epd_busy
-    )
+    display = adafruit_acep7in.ACeP7In(display_bus, width=800, height=480, busy_pin=epd_busy)
 
     g = displayio.Group()
 
-    fn = "/display-ruler-720p.bmp"
+    pic = displayio.OnDiskBitmap("/display-ruler-720p.bmp")
+    t = displayio.TileGrid(pic, pixel_shader=pic.pixel_shader)
+    g.append(t)
 
-    with open(fn, "rb") as f:
-        pic = displayio.OnDiskBitmap(f)
-        t = displayio.TileGrid(pic, pixel_shader=pic.pixel_shader)
-        g.append(t)
+    display.root_group = g
 
-        display.root_group = g
+    display.refresh()
 
-        display.refresh()
-
-        time.sleep(120)
-
+    time.sleep(120)
 
 Documentation
 =============
